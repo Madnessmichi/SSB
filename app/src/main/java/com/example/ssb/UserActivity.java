@@ -36,18 +36,19 @@ public class UserActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                Cursor cursor = dbHelper.verif(editId.getText().toString(),editPass.getText().toString());
+               // Cursor cursor = dbHelper.verif(editId.getText().toString(),editPass.getText().toString());
+                Intent btnAcceder = new Intent(UserActivity.this, MenuActivity.class);
+               /* if (cursor.getCount()>0){
 
-                if (cursor.getCount()>0){
-                    Intent btnAcceder = new Intent(UserActivity.this, MenuActivity.class);
-
-                    startActivity(btnAcceder);
+                    intent va aqui!!!!
+                    staractitivty aqui!!!!
                 }else {
                     Toast.makeText(getApplicationContext(),"Usuario o Contraseña incorrecto",Toast.LENGTH_LONG).show();
                 }
                 editId.setText("");
                 editPass.setText("");
-                editId.findFocus();
+                editId.findFocus();*/
+               startActivity(btnAcceder);
             }
 
         });
