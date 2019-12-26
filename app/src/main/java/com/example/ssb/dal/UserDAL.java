@@ -60,8 +60,6 @@ public class UserDAL {
 
     //Validar usuario
 
-
-
     public User getUser() {
         return this.user;
     }

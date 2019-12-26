@@ -1,22 +1,20 @@
 package com.example.ssb.dto;
 
-import com.example.ssb.dto.User;
-
 import java.io.Serializable;
 
 public class Alarma extends User implements Serializable {
     private User user;
-    private Boolean estado;
+    private int estado;
 
-    public Alarma() {
+    public Alarma(String user, int estado) {
     }
 
-    public Alarma(User user, Boolean estado) {
+    public Alarma() {
         this.user = user;
         this.estado = estado;
     }
 
-    public Alarma(Boolean estado) {
+    public Alarma(int estado) {
         this.estado = estado;
     }
 
@@ -28,11 +26,11 @@ public class Alarma extends User implements Serializable {
         this.user = user;
     }
 
-    public Boolean getEstado() {
+    public int getEstado() {
         return estado;
     }
 
-    public void setEstado(Boolean estado) {
+    public void setEstado(int estado) {
         this.estado = estado;
     }
 
