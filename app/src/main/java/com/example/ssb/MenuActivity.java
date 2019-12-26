@@ -10,11 +10,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.ssb.dto.Estado;
+
+import java.util.Locale;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
 
 public class MenuActivity extends AppCompatActivity {
     private Button btnConectar, btnDesconectar, btnEstado, btnAtencion, btnCerrar;
-    private Date date;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,19 +95,33 @@ public class MenuActivity extends AppCompatActivity {
         btnEstado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MenuActivity.this);
+                if (btnConectar.hasOnClickListeners() ) {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MenuActivity.this);
 
-                builder.setMessage("Su estado es conectado");
-                builder.setTitle("Estado de la Alarma");
-                builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
+                    builder.setMessage("Su estado es conectado");
+                    builder.setTitle("Estado de la Alarma");
+                    builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
 
-                    }
-                });
+                        }
+                    });
+                } if (btnDesconectar.hasOnClickListeners()){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MenuActivity.this);
 
+                    builder.setMessage("Su estado es desconectado");
+                    builder.setTitle("Estado de la Alarma");
+                    builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+
+                        }
+                    });
+                }
             }
+
 
         });
 
@@ -111,7 +130,44 @@ public class MenuActivity extends AppCompatActivity {
 
 
     }
-    public void a(View view){
+    public void intentoDeGuardarEstado(Estado estado){
+       boolean conectar = true;
+        if (btnConectar.hasOnClickListeners() ) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(MenuActivity.this);
 
+            builder.setMessage("Su estado es conectado");
+            builder.setTitle("Estado de la Alarma");
+            builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+
+                }
+            });
+        } if (btnDesconectar.hasOnClickListeners()){
+            AlertDialog.Builder builder = new AlertDialog.Builder(MenuActivity.this);
+
+            builder.setMessage("Su estado es desconectado");
+            builder.setTitle("Estado de la Alarma");
+            builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+
+                }
+            });
+        }
     }
+    public void intentoDeIprimirFechaDelLosButtons(){
+
+        if (btnConectar == btnDesconectar ) {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+            Date date = new Date();
+
+            String fecha = dateFormat.format(date);
+        }
+    }
+
+
+
 }
